@@ -1,0 +1,42 @@
+static void Main()
+{
+List numbers = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+
+int numberToAdd = int.Parse(Console.ReadLine());
+int numberToRemove = int.Parse(Console.ReadLine());
+int indexToRemove = int.Parse(Console.ReadLine());
+
+    Console.WriteLine($"Начален списък: {string.Join(" ", numbers)}");  
+numbers.Add(numberToAdd);
+Console.WriteLine($"След Add: {string.Join(" ", numbers)}");
+
+numbers.Insert(0, numberToAdd);
+Console.WriteLine($"След Insert:{string.Join(" ", numbers)}");
+
+if (numbers.Contains(numberToRemove))
+{
+numbers.Remove(numberToRemove);
+}
+else
+{
+Console.WriteLine($"Числото {numberToRemove} липсва в списъка.");
+}
+Console.WriteLine($"След Remove:{string.Join(" ", numbers)}");
+
+if (indexToRemove >= 0 && indexToRemove < numbers.Count)
+{
+numbers.RemoveAt(indexToRemove);
+}
+else
+{
+Console.WriteLine("Невалиден индекс!");
+}
+Console.WriteLine($"След RemoveAt:{string.Join(" ", numbers)}");
+
+Console.WriteLine($"Краен брой елементи: {numbers.Count}");
+for (int i = 0; i < numbers.Count; i++)
+{
+Console.WriteLine($"{i}.{numbers[i]}");
+}
+}
+}
