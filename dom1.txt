@@ -1,0 +1,45 @@
+static void Main(string[] args)
+{
+
+    string input = Console.ReadLine();
+    List<string> textList = input.Split(' ').ToList();
+    
+    foreach (string number in textList)
+    {
+        Console.WriteLine(number);
+    }
+    
+    
+    List<int> numbers = new List<int>();
+    foreach (string item in textList)
+    {
+        int number = int.Parse(item);
+        numbers.Add(number);
+    }
+    
+   
+    foreach (int num in numbers)
+    {
+        Console.WriteLine(num);
+    }
+
+    
+    Console.WriteLine($"Брой на всички числа: {numbers.Count}");
+
+   
+    List<int> filteredNumbers = new List<int>();
+    foreach (int num in numbers)
+    {
+        if (num > 0 && num % 2 == 0 && !filteredNumbers.Contains(num))
+        {
+            filteredNumbers.Add(num);
+        }
+    }
+
+    
+    Console.WriteLine(string.Join(", ", filteredNumbers));
+
+    
+    Console.WriteLine($"Брой на филтрираните числа: {filteredNumbers.Count}");
+    Console.WriteLine($"Сума на филтрираните числа: {filteredNumbers.Sum()}");
+}
