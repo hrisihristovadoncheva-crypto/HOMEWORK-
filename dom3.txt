@@ -1,0 +1,32 @@
+static void Main(string[] args)
+{
+   //Chast1
+    string word = Console.ReadLine();
+    int n = int.Parse(Console.ReadLine());
+
+    string result = "";
+    for (int i = 0; i < n; i++)
+    {
+        if (i > 0)
+        {
+            result += "-";
+        }
+        result += word;
+    }
+    Console.WriteLine(result);
+
+    //Chast2
+    string words = Console.ReadLine();
+    int m = int.Parse(Console.ReadLine());
+
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; ; i++)
+    {
+        if ((i > 0) && (i < words.Length)) 
+        {
+            sb.Append("-");
+        }
+        sb.Append(word);
+    }
+    Console.WriteLine(sb.ToString());
+}
